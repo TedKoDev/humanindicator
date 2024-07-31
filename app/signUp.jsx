@@ -69,23 +69,23 @@ const SignUp = () => {
 
         {/* form */}
         <View style={styles.form}>
-          <Text style={{ fontSize: hp(1.5), color: theme.colors.text }}>Please fill the details to create an account</Text>
+          <Text style={{ fontSize: hp(1.5), color: theme.colors.text }}>상세정보를 입력해주세요.</Text>
           <Input
             icon={<Icon name="user" size={26} strokeWidth={1.6} />}
-            placeholder="Enter your name"
+            placeholder="닉네임을 입력해주세요."
             placeholderTextColor={theme.colors.textLight}
             onChangeText={(value) => (nameRef.current = value)}
           />
           <Input
             icon={<Icon name="mail" size={26} strokeWidth={1.6} />}
-            placeholder="Enter your email"
+            placeholder="이메일을 입력해주세요."
             placeholderTextColor={theme.colors.textLight}
             onChangeText={(value) => (emailRef.current = value)}
           />
           <Input
             icon={<Icon name="lock" size={26} strokeWidth={1.6} />}
             secureTextEntry
-            placeholder="Enter your password"
+            placeholder="비밀번호를 입력해주세요."
             placeholderTextColor={theme.colors.textLight}
             onChangeText={(value) => (passwordRef.current = value)}
           />

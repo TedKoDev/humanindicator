@@ -20,3 +20,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ㄴHugeicon 이라는 사이트 이용 https://hugeicons.com/
 ㄴnpm i react-native-svg
+
+## Lottie Json
+
+npm install lottie-react-native
