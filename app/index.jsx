@@ -1,17 +1,14 @@
-import { View, Text, Button } from "react-native";
-import React from "react";
-
-import { useRouter } from "expo-router";
+import { View, Text } from "react-native";
+import React, { useEffect, useState } from "react";
 import ScreenWrapper from "../components/ScreenWrapper";
+import Loading from "../components/Loading";
 
-const index = () => {
-  const router = useRouter();
+const StartPage = () => {
   return (
-    <ScreenWrapper>
-      <Text>index</Text>
-      <Button title="Go to Welcome" onPress={() => router.push("welcome")} />
-    </ScreenWrapper>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Loading />
+    </View>
   );
 };
 
-export default index;
+export default StartPage;

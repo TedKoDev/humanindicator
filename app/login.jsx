@@ -9,7 +9,7 @@ import { theme } from "../constants/theme";
 import BackButton from "../components/BackButton";
 import { useRouter } from "expo-router";
 import Button from "../components/Button";
-// import { supabase } from '../lib/supabase';
+import { supabase } from "../lib/supabase";
 import Icon from "../assets/icons";
 import Input from "../components/Input";
 
@@ -21,22 +21,25 @@ const Login = () => {
   const router = useRouter();
 
   const onSubmit = async () => {
-    // if (!emailRef.current || !passwordRef.current) {
-    //   Alert.alert("Login", "Please fill all the fields!");
-    //   return;
-    // }
-    // let email = emailRef.current.trim();
-    // let password = passwordRef.current.trim();
-    // setLoading(true);
-    // const { error } = await supabase.auth.signInWithPassword({
-    //   email: email,
-    //   password: password,
-    // });
-    // if (error) Alert.alert("Login", error.message);
-    // setLoading(false);
+    if (!emailRef.current || !passwordRef.current) {
+      Alert.alert("Login", "Please fill all the fields!");
+      return;
+    }
+
+    let email = emailRef.current.trim();
+    let password = passwordRef.current.trim();
+
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) Alert.alert("Login", error.message);
+    setLoading(false);
+
     // setLoading(true);
   };
-
   return (
     <ScreenWrapper bg={"white"}>
       <StatusBar style="dark" />

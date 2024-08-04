@@ -9,7 +9,7 @@ import { theme } from "../constants/theme";
 import BackButton from "../components/BackButton";
 import { useRouter } from "expo-router";
 import Button from "../components/Button";
-// import { supabase } from '../lib/supabase';
+import { supabase } from "../lib/supabase";
 import Icon from "../assets/icons";
 import Input from "../components/Input";
 
@@ -38,15 +38,17 @@ const SignUp = () => {
     } = await supabase.auth.signUp({
       email: email,
       password: password,
+      // 자체 데이터베이스에 추가할 데이터로 data 옵션을 적용해서 넣어줍니다.
       options: {
         data: {
           name,
+          email,
         },
       },
     });
 
-    // console.log('session: ', session);
-    // console.log('error: ', error);
+    // console.log("session: ", session);
+    // console.log("error: ", error);
 
     if (error) Alert.alert("Sign up", error.message);
     setLoading(false);
@@ -91,13 +93,13 @@ const SignUp = () => {
           />
 
           {/* button */}
-          <Button title="Sign up" loading={loading} onPress={onSubmit} />
+          <Button title="등록하기" loading={loading} onPress={onSubmit} />
         </View>
 
         <View style={styles.footer}>
-          <Text style={styles.footerText}>Already have an account!</Text>
+          <Text style={styles.footerText}>이미 지표모임 회원이신가요?</Text>
           <Pressable onPress={() => router.navigate("/login")}>
-            <Text style={[styles.footerText, { color: theme.colors.primaryDark, fontWeight: theme.fonts.semibold }]}>Login</Text>
+            <Text style={[styles.footerText, { color: theme.colors.primaryDark, fontWeight: theme.fonts.semibold }]}>로그인</Text>
           </Pressable>
         </View>
       </View>
